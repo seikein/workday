@@ -9,7 +9,7 @@
 </style>
 </head>
 <body>
-<main class="game"><header><span aria-hidden="true">💻</span><h1>工程師的一天</h1><span class="tag">離線職場冒險</span><span class="spacer"></span><button class="tool" id="hintBtn" aria-pressed="false">提示：關</button><button class="tool" id="saveBtn">儲存</button><button class="tool" id="loadBtn">讀取</button><button class="tool" id="restartBtn">重來</button></header><section class="status" id="status" aria-label="今日狀態"></section><section class="flow" id="flow" aria-live="polite"></section><div class="thinking" id="thinking">命運正在編譯下一個事件<span class="dots"></span></div><section class="options" id="options" aria-label="行動選項"></section></main>
+<main class="game"><header><span aria-hidden="true">💻</span><h1>工程師的一天 v1.0</h1><span class="tag">離線職場冒險</span><span class="spacer"></span><button class="tool" id="hintBtn" aria-pressed="false">提示：關</button><button class="tool" id="saveBtn">儲存</button><button class="tool" id="loadBtn">讀取</button><button class="tool" id="restartBtn">重來</button></header><section class="status" id="status" aria-label="今日狀態"></section><section class="flow" id="flow" aria-live="polite"></section><div class="thinking" id="thinking">命運正在編譯下一個事件<span class="dots"></span></div><section class="options" id="options" aria-label="行動選項"></section></main>
 <section class="ending" id="ending" role="dialog" aria-modal="true" aria-labelledby="endingTitle"><div class="card" id="endingCard"></div></section><div class="footer">單檔離線遊戲｜請記得準時下班</div>
 <script>
 "use strict";
@@ -18,7 +18,7 @@ const scenes={
 start:{text:"早上 7:20，鬧鐘第三次響起。Slack 顯示昨晚一切正常——這句話通常不太吉利。你得先決定今天怎麼前往公司。",options:[
 {text:"搭捷運，車上先看一下告警",next:"metro",minutes:45,energy:-5,stress:8,effect:"較準時，但提早接觸工作"},{text:"騎機車通勤，順便思考今天的需求",next:"bike",minutes:25,energy:3,stress:-2,effect:"通勤較快"},{text:"叫車，爭取在路上補眠",next:"taxi",minutes:30,energy:12,effect:"精力 +12"}]},
 metro:{text:"捷運臨時停駛三分鐘。你盯著手機上的錯誤率曲線，旁邊一位乘客正努力扶著行李。",options:[{text:"先遠端重啟服務",next:"breakfast",minutes:15,bugs:1,stress:12,effect:"Bug +1、壓力 +12"},{text:"幫忙扶行李，到公司再處理",next:"breakfast",minutes:8,energy:5,stress:-3,effect:"心情變好"}]},
-bike:{text:"騎車上班途中，前方路口發生車禍造成塞車。導航開始瘋狂重新規劃路線，你可以選擇繞路或順便買個早餐。",options:[{text:"繞路直奔公司",next:"breakfast",minutes:18,energy:-5},{text:"停下來好好吃早餐",next:"breakfast",minutes:25,energy:8,stress:-4,effect:"精神比較穩定"}]},
+bike:{text:"騎車上班途中，前方路口發生車禍造成塞車。導航開始瘋狂重新規劃路線，你可以選擇繞路或順便買個早餐。",options:[{text:"繞路直奔公司",next:"breakfast",minutes:18,energy:-5},{text:"順便買個早餐",next:"breakfast",minutes:25,energy:8,stress:-4,effect:"精神比較穩定"}]},
 taxi:{text:"司機非常健談，從 AI 聊到區塊鏈，最後問你能不能順便修他的印表機。你抵達公司時，告警剛好自行恢復。",options:[{text:"告訴司機重新插電的奧義",next:"breakfast",minutes:5,bugs:1,effect:"民間 Bug +1"},{text:"微笑下車，保留社交能量",next:"breakfast",energy:4}]},
 breakfast:{text:"公司樓下還有早餐時間。今天吃什麼，將直接決定上午的程式碼品質。",options:[
 {text:"蛋餅加豆漿，正常發揮",next:"arrival",minutes:20,energy:18,effect:"精力 +18"},{text:"黑咖啡當早餐，快速上樓",next:"arrival",minutes:8,energy:10,stress:8,effect:"快，但壓力 +8"},{text:"不吃早餐，搶先處理告警",next:"arrival",minutes:0,energy:-12,bugs:1,stress:6,effect:"Bug +1、精力 -12"}]},
